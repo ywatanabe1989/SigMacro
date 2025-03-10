@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-03-10 14:53:47
+!-- Timestamp: 2025-03-10 16:06:45
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/proj/SigMacro/PySigMacro/README.md
 !-- --- -->
@@ -27,14 +27,18 @@ python.exe -m pip install -e .
 ## (Optional) Work on WSL
 
 ``` bash
-## Preparation
+## Directory
+mkdir -p ~/proj/
+ln -s /mnt/c/Users/<YOUR-USER-NAME>/path/to/SigMacro/PySigMacro ~/proj/PySigMacro
+
+## Executables
 mkdir -p ~/.win-bin
 ln -s /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe ~/.win-bin/powershell.exe
 ln -s /mnt/c/Program Files (x86)/SigmaPlot/SPW12/Spw.exe ~/.win-bin/sigmaplot.exe
 export PATH:$PATH:~/.win-bin
 
 ## Aliases
-alias 'kill-sigmaplot'='powershell.exe -File "$(wslpath -w /home/ywatanabe/win/program_files_x86/ywatanabe/kill-sigmaplot.ps1)"'
+alias 'kill-sigmaplot'='powershell.exe -File "$(wslpath -w /home/<YOUR-USER-NAME>/win/program_files_x86/<YOUR-USER-NAME>/kill-sigmaplot.ps1)"'
 alias 'python.exe'='powershell.exe python.exe'
 alias 'ipython.exe'='powershell.exe ipython.exe --no-autoindent'
 ```
