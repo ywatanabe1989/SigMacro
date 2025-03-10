@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-03-10 14:32:56
+!-- Timestamp: 2025-03-10 16:01:02
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/proj/SigMacro/SigMacro/README.md
 !-- --- -->
@@ -11,7 +11,7 @@
   2. Copy the `SigmaPlot` folder to `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`
 
 ## Manual Configuration
-  1. Copy `Confusion_Matrix.JNB` and `SigMacro.JNB` to user configuration directory (`C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`)
+  1. Copy (or create shortcuts of) `Confusion_Matrix.JNB` and `SigMacro.JNB` to user configuration directory (`C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`)
     
   2. Configurations
 
@@ -19,7 +19,7 @@
 
      - Macro Tab
        - Macro library
-         - From `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigmaPlot Macro Library.jnb` to `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigMacro.JNB`
+         - Update from `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigmaPlot Macro Library.jnb` to `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigMacro.JNB`
      - Page Tab
        - Page Units mm
      - General Tab
