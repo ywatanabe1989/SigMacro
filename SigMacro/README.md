@@ -11,7 +11,7 @@
   2. Copy the `SigmaPlot` folder to `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`
 
 ## Manual Configuration
-  1. Copy `Confusion_Matrix.JNB` and `SigMacro_v1.0.JNB` to user configuration directory (`C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`)
+  1. Copy `Confusion_Matrix.JNB` and `SigMacro.JNB` to user configuration directory (`C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\`)
     
   2. Configurations
 
@@ -19,26 +19,24 @@
 
      - Macro Tab
        - Macro library
-         - C:\Users\wyusu\Documents\SigmaPlot\SPW12\SigMacro_v1.0.JNB
+         - From `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigmaPlot Macro Library.jnb` to `C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigMacro.JNB`
      - Page Tab
        - Page Units mm
      - General Tab
        - Uncheck Novice prompting
        - Uncheck Startup Screen
        - Template file
-         - C:\Users\wyusu\Documents\SigmaPlot\SPW12\TEMPLATE.JNT
+         - C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\TEMPLATE.JNT
        - Layout file
-         - C:\Users\wyusu\Documents\SigmaPlot\SPW12\Layout.JNT
+         - C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\Layout.JNT
        - Gallery file
-         - C:\Users\wyusu\Documents\SigmaPlot\SPW12\Gallery.jgg
+         - C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\Gallery.jgg
        - Author
-         - ywatanabe@alumni.u-tokyo.ac.jp
+         - YOUR-NAME-OR-EMAIL
        - Macro
          - Macro library
            - Default
-             - C:\Users\wyusu\Documents\SigmaPlot\SPW12\SigmaPlot Macro Library.jnb
-           - Develop
-             - C:\Users\wyusu\Documents\SigmaPlot\SPW12\SigMacro_v1.0.JNB
+             - C:\Users\<YOUR_USER_NAME>\Documents\SigmaPlot\SPW12\SigmaPlot Macro Library.jnb
        - Customize Tool Bar
          - Right click
          - Choose commands from:
