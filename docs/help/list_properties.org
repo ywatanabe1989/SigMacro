@@ -1,0 +1,401 @@
+# Timestamp: "2025-03-14 22:51:16 (ywatanabe)"
+# File: /home/ywatanabe/proj/SigMacro/PySigMacro/list_properties.org
+
+
+* Properties
+** ActiveDocument
+*** Syntax
+ActiveDocument
+*** Examples
+```vba
+ActiveDocument.Author = "John Doe"
+ActiveDocument.Title = "My Notebook"
+ActiveDocument.Comments = "For My Eyes Only"
+ActiveDocument.FullName
+```
+** AddOnLocation
+*** Syntax
+Application object.AddOnLocation(addon name variant, version variant)
+*** Examples
+Displays the path for the SigmaPlot Enzyme Kinetics Module.
+```vba
+Dim EKPath
+EKPath = AddOnLocation("Enzyme Kinetics")
+MsgBox EKPath
+```
+** Application
+*** Syntax
+object.Application
+*** Examples:
+```vba
+MsgBox ActiveDocument.Application.FullName
+```
+** Author
+*** Syntax
+Notebook/NotebookItems object.Author
+*** Examples:
+```vba
+ActiveDocument.Author = "John Doe"
+MsgBox Notebooks(2).NotebookItems(3).Author
+```
+** Autolegend
+*** Syntax
+Graph object.AutoLegend
+*** Examples:
+```vba
+ActiveDocument.CurrentPageItem.GraphPages(0).Graphs(0).AutoLegend.ChildObjects(0).Color(RGB_YELLOW)
+```
+** Axes
+*** Syntax
+Graph object.Axes
+*** Examples:
+```vba
+Dim SPGraph As Object
+Set SPGraph = ActiveDocument.CurrentPageItem.GraphPages(0).Graphs(0)
+MsgBox "Graph " + SPGraph.Name + ": " + SPGraph.Axes.Count + " Axes",,"Number of Axes"
+```
+** AxisTitles
+*** Syntax
+Axis object.AxisTitles
+*** Examples:
+```vba
+```
+** Cell
+*** Syntax
+DataTable object.Cell (Column As Long, Row As Long)
+*** Examples:
+```vba
+```
+** ChildObjects
+*** Syntax
+Page object.ChildObjects
+*** Examples:
+```vba
+```
+** Color
+*** Syntax
+*** Examples:
+```vba
+```
+** ColumnTitle
+*** Syntax
+*** Examples:
+```vba
+```
+** Comments
+*** Syntax
+*** Examples:
+```vba
+```
+** Count
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentBrowserItem
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentDataItem
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentDateString
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentItem
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentPageItem
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentPageObject
+*** Syntax
+*** Examples:
+```vba
+```
+** CurrentTimeString
+*** Syntax
+*** Examples:
+```vba
+```
+** DataTable
+*** Syntax
+*** Examples:
+```vba
+```
+** DecimalSymbol
+*** Syntax
+*** Examples:
+```vba
+```
+** DefaultPath
+*** Syntax
+*** Examples:
+```vba
+```
+** DropLines
+*** Syntax
+*** Examples:
+```vba
+```
+** Expanded
+*** Syntax
+*** Examples:
+```vba
+```
+** Fill
+*** Syntax
+*** Examples:
+```vba
+```
+** FullName
+*** Syntax
+*** Examples:
+```vba
+```
+** Functions
+*** Syntax
+*** Examples:
+```vba
+```
+** Gallery
+*** Syntax
+*** Examples:
+```vba
+```
+** Graphs
+*** Syntax
+*** Examples:
+```vba
+```
+** GraphPages
+*** Syntax
+*** Examples:
+```vba
+```
+** Height
+*** Syntax
+*** Examples:
+```vba
+```
+** InsertionMode
+*** Syntax
+*** Examples:
+```vba
+```
+** Interactive
+*** Syntax
+*** Examples:
+```vba
+```
+** IsCurrentBrowserEntry
+*** Syntax
+*** Examples:
+```vba
+```
+** IsCurrentItem
+*** Syntax
+*** Examples:
+```vba
+```
+** IsOpen
+*** Syntax
+*** Examples:
+```vba
+```
+** ItemType
+*** Syntax
+*** Examples:
+```vba
+```
+** Keywords
+*** Syntax
+*** Examples:
+```vba
+```
+** Left
+*** Syntax
+*** Examples:
+```vba
+```
+** Line
+*** Syntax
+*** Examples:
+```vba
+```
+** LineAttributes
+*** Syntax
+*** Examples:
+```vba
+```
+** LowerPickIndex
+*** Syntax
+*** Examples:
+```vba
+```
+** Name
+*** Syntax
+*** Examples:
+```vba
+```
+** NameObject
+*** Syntax
+*** Examples:
+```vba
+```
+** NameOfRange
+*** Syntax
+*** Examples:
+```vba
+```
+** NamedRanges
+*** Syntax
+*** Examples:
+```vba
+```
+** NotebookItems
+*** Syntax
+*** Examples:
+```vba
+```
+** Notebooks
+*** Syntax
+*** Examples:
+```vba
+```
+** NumberFormat
+*** Syntax
+*** Examples:
+```vba
+```
+** ObjectType
+*** Syntax
+*** Examples:
+```vba
+```
+** OwnerGraphObject
+*** Syntax
+*** Examples:
+```vba
+```
+** Parent
+*** Syntax
+*** Examples:
+```vba
+```
+** Path
+*** Syntax
+*** Examples:
+```vba
+```
+** Plots
+*** Syntax
+*** Examples:
+```vba
+```
+** Saved
+*** Syntax
+*** Examples:
+```vba
+```
+** SelectedText
+*** Syntax
+*** Examples:
+```vba
+```
+** SelectionExtent
+*** Syntax
+*** Examples:
+```vba
+```
+** ShowStatsWorksheet
+*** Syntax
+*** Examples:
+```vba
+```
+** StatsWorksheetDataTable
+*** Syntax
+*** Examples:
+```vba
+```
+** StatusBar
+*** Syntax
+*** Examples:
+```vba
+```
+** Subject
+*** Syntax
+*** Examples:
+```vba
+```
+** SuspendIdle
+*** Syntax
+*** Examples:
+```vba
+```
+** Symbols
+*** Syntax
+*** Examples:
+```vba
+```
+** Template
+*** Syntax
+*** Examples:
+```vba
+```
+** Text
+*** Syntax
+*** Examples:
+```vba
+```
+** TickLabelAttributes
+*** Syntax
+*** Examples:
+```vba
+```
+** Title
+*** Syntax
+*** Examples:
+```vba
+```
+** Top
+*** Syntax
+*** Examples:
+```vba
+```
+** UpperPickIndex
+*** Syntax
+*** Examples:
+```vba
+```
+** Visible
+*** Syntax
+*** Examples:
+```vba
+```
+** Width
+*** Syntax
+*** Examples:
+```vba
+```
+
+# EOF
+
+# EOF
+
+# EOF
+
+# EOF
+
+# EOF
+
+# EOF

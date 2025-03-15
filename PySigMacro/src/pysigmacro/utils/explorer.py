@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-03-10 12:07:22 (ywatanabe)"
-# File: /home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_dynamic.py
-
-THIS_FILE = "/home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_dynamic.py"
+# Timestamp: "2025-03-15 16:30:59 (ywatanabe)"
+# File: /home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/explorer.py
+# ----------------------------------------
+import os
+__FILE__ = (
+    "/home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/explorer.py"
+)
+__DIR__ = os.path.dirname(__FILE__)
+# ----------------------------------------
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Time-stamp: "2024-11-03 10:33:13 (ywatanabe)"
 # File: placeholder.py
-
-__file__ = "placeholder.py"
 
 """
 Functionalities:
@@ -38,7 +41,6 @@ IO:
 """
 
 """Imports"""
-import os
 import sys
 import argparse
 

@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-03-10 15:01:36
+!-- Timestamp: 2025-03-10 15:58:17
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/proj/SigMacro/README.md
 !-- --- -->
@@ -25,7 +25,7 @@ A package for automating SigmaPlot routines.
 - SigMacro
   - Series of macros for automating SigmaPlot
   - Installation
-    - [`./SigmaMacro/README.md`](./SigmaMacro/README.md)
+    - [`./SigMacro/README.md`](./SigMacro/README.md)
 
 - PySigMacro
   - Python Interface for calling SigMacro

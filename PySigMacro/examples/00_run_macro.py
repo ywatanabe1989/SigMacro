@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-03-10 08:22:50 (ywatanabe)"
-# File: /home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/pysigmacro/examples/00_run_macro.py
+# Timestamp: "2025-03-12 07:52:21 (ywatanabe)"
+# File: /home/ywatanabe/proj/SigMacro/PySigMacro/examples/00_run_macro.py
 
-THIS_FILE = "/home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/pysigmacro/examples/00_run_macro.py"
+__THIS_FILE__ = "/home/ywatanabe/proj/SigMacro/PySigMacro/examples/00_run_macro.py"
 
 import sys
 import os
@@ -14,7 +14,7 @@ from pysigmacro.core.connection import connect
 from pysigmacro.utils.paths import to_win
 import argparse
 
-def main(*args, path_macro_win: str, macro_name: str = "hello_world") -> None:
+def main(path_macro_win: str, macro_name: str, *args,) -> None:
     """
     Run a SigmaPlot macro from a specified notebook file.
 
@@ -75,7 +75,7 @@ def main(*args, path_macro_win: str, macro_name: str = "hello_world") -> None:
             nbiMacro = nbVBLib.NotebookItems(macro_name)
             if nbiMacro is not None:
                 # Generate text file for arguments
-                gen_args_text_file(os.path.dirname(path_macro_win), *args)
+                gen_args_text_file(path_macro_win, *args)
                 # Run the macro
                 nbiMacro.Run()
                 print("Macro execution completed")
@@ -88,7 +88,7 @@ def main(*args, path_macro_win: str, macro_name: str = "hello_world") -> None:
         print(f"Error in main function: {e}")
 
 
-def gen_args_text_file(path_macro_winDir: str, *args):
+def gen_args_text_file(path_macro: str, *args):
     """
     Generate a text file containing comma-separated arguments for the macro.
 
@@ -102,6 +102,7 @@ def gen_args_text_file(path_macro_winDir: str, *args):
     Returns:
         None
     """
+    path_macro_dir = os.path.dirname(path_macro)
     # If one or more arguments are provided
     if args:
         # Combine arguments with comma separator
@@ -109,11 +110,11 @@ def gen_args_text_file(path_macro_winDir: str, *args):
 
         # Show error if directory doesn't exist
         if not os.path.exists(path_macro_winDir):
-            print(f"Specified directory does not exist: {path_macro_winDir}")
+            print(f"Specified directory does not exist: {path_macro_dir}")
             return
 
         # Create file path in the folder
-        file_path = os.path.join(path_macro_winDir, "arguments.txt")
+        file_path = os.path.join(path_macro_dir, "arguments.txt")
 
         # Write to file
         with open(file_path, "w") as file:
@@ -137,7 +138,7 @@ if __name__ == "__main__":
         "--path",
         "-p",
         dest="path_macro_win",
-        default="C:/Users/wyusu/Documents/SigmaPlot/SPW12/Pysigmacro_v1.3.JNB",
+        default="C:/Users/wyusu/Documents/SigmaPlot/SPW12/SigMacro.JNB",
         help="Path to the SigmaPlot notebook (.JNB) file",
     )
 
@@ -152,6 +153,6 @@ if __name__ == "__main__":
     args_parsed = parser.parse_args()
     print(args_parsed)
 
-    main(*args_parsed.args, path_macro_win=args_parsed.path_macro_win, macro_name=args_parsed.macro_name)
+    main(path_macro_win=args_parsed.path_macro_win, macro_name=args_parsed.macro_name, *args_parsed.args)
 
 # EOF
