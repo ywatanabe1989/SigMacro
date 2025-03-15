@@ -1,0 +1,472 @@
+# Timestamp: "2025-03-14 22:38:09 (ywatanabe)"
+# File: /home/ywatanabe/proj/SigMacro/PySigMacro/list_constants.org
+
+
+* Notebook Item Types
+CT_WORKSHEE, 1
+ 
+
+ 
+CT_GRAPHICPAGE, 2 
+ 
+
+ 
+CT_FOLDER, 3
+ 
+
+ 
+CT_STATTEST, 4
+ 
+
+ 
+CT_REPORT, 5
+ 
+
+ 
+CT_FIT, 6
+ 
+
+ 
+CT_NOTEBOOK , 7
+ 
+
+ 
+CT_EXCELWORKSHEET, 8
+ 
+
+ 
+CT_TRANSFORM, 9
+ 
+
+ 
+CT_MACRO, 1
+ 
+
+ 
+CT_NUMBEROFTYPES, 1
+
+* Page and Graph Objects
+GPT_OBJECT 0
+
+ 
+GPT_PAGE 1
+ 
+
+ 
+GPT_GRAPH 2
+ 
+
+ 
+GPT_PLOT 3
+ 
+
+ 
+GPT_AXIS 4
+ 
+
+ 
+GPT_TEXT 5
+ 
+
+ 
+GPT_LINE 6
+ 
+
+ 
+GPT_SYMBOL 7 
+ 
+
+ 
+GPT_SOLID 8
+ 
+
+ 
+GPT_TUPLE 9
+ 
+
+ 
+GPT_FUNCTION 1
+ 
+
+ 
+GPT_EXTERNAL 1
+ 
+
+ 
+GPT_BAG 1
+ 
+
+ 
+GPT_DOCUMENT 1
+ 
+
+ 
+GPT_DATATABLE 1
+ 
+* Graph Attributes
+SPWGraphAttribute: Graph Attributes 
+
+Graph options. These are typically the values of the first or second arguments (respectively) set using the SetCurrentObjectAttribute or SetAttribute methods. 
+
+SGA_BASE 
+ &H00000200 
+ 
+ 
+SGA_END 
+ &H000002FF 
+ 
+ 
+SGA_NAME 
+ &H00000200 
+ The name of the graph, also used for the graph title 
+ 
+SGA_COORDSYSTEM 
+ &H00000201 
+ Determines the coordinate system to be used by the graph—use SGA_COORD constants to set 
+ 
+SGA_ADDPLOT 
+ &H00000202 
+ Adds a new plot to the graph; it becomes the Current Plot 
+ 
+SGA_DELPLOT 
+ &H00000203 
+ Deletes the Current Plot 
+ 
+SGA_HORANGLE 
+ &H00000204 
+ 3D horizontal rotaion 
+ 
+SGA_ELANGLE 
+ &H00000205 
+ 3D vertical (elevation) angle 
+ 
+SGA_PERSPECTIVE 
+ &H00000206 
+ 3D perspective 
+ 
+SGA_SHOWNAME 
+ &H00000207 
+ Display the graph title 
+ 
+SGA_ORGTYPE 
+ &H00000209 
+ 
+ 
+SGA_SELECTLINE 
+ &H0000020A 
+ Use SGA_LINE constants 
+ 
+SGA_HLINE 
+ &H0000020B 
+ 
+ 
+SGA_ENUMPLOTS 
+ &H0000020C 
+ 
+ 
+SGA_ENUMAXES 
+ &H0000020D 
+ 
+ 
+SGA_ADDAXIS 
+ &H0000020E 
+ Adds a new axis 
+ 
+SGA_DELAXIS 
+ &H0000020F 
+ Deletes the current axis 
+ 
+SGA_PLANECOLORXYBACK 
+ &H00000210 
+ Color for XY backplane 
+ 
+SGA_PLANECOLORXYFRONT 
+ &H00000211 
+ 
+ 
+SGA_PLANECOLORYZBACK 
+ &H00000212 
+ Color for YZ backplane 
+ 
+SGA_PLANECOLORYZFRONT 
+ &H00000213 
+ 
+ 
+SGA_PLANECOLORZXBACK 
+ &H00000214 
+ Color for ZX backplane 
+ 
+SGA_PLANECOLORZXFRONT 
+ &H00000215 
+ 
+ 
+SGA_PLANESTYLEXYBACK 
+ &H00000216 
+ 
+ 
+SGA_PLANESTYLEXYFRONT 
+ &H00000217 
+ 
+ 
+SGA_PLANESTYLEYZBACK 
+ &H00000218 
+ 
+ 
+SGA_PLANESTYLEYZFRONT 
+ &H00000219 
+ 
+ 
+SGA_PLANESTYLEZXBACK 
+ &H0000021A 
+ 
+ 
+SGA_PLANESTYLEZXFRONT 
+ &H0000021B 
+ 
+ 
+SGA_PLANEHATCHXYBACK 
+ &H0000021C 
+ Pattern for XY backplane 
+ 
+SGA_PLANEHATCHXYFRONT 
+ &H0000021D 
+ 
+ 
+SGA_PLANEHATCHYZBACK 
+ &H0000021E 
+ Pattern for YZ backplane 
+ 
+SGA_PLANEHATCHYZFRONT 
+ &H0000021F 
+ 
+ 
+SGA_PLANEHATCHZXBACK 
+ &H00000220 
+ Pattern for ZX backplane 
+ 
+SGA_PLANEHATCHZXFRONT 
+ &H00000221 
+ 
+ 
+SGA_PLANEXYBACK 
+ &H00000230 
+ 
+ 
+SGA_PLANEYZBACK 
+ &H00000231 
+ 
+ 
+SGA_PLANEZXBACK 
+ &H00000232 
+ 
+ 
+SGA_FRAMEORG 
+ &H00000240 
+ 
+ 
+SGA_FRAMENONORG 
+ &H00000241 
+ 
+ 
+SGA_FRAMENEAR 
+ &H00000242 
+ 
+ 
+SGA_FRAMEFAR 
+ &H00000243 
+ 
+ 
+SGA_MAXDIM 
+ &H00000244 
+ 
+ 
+SGA_AXESTOFRONT 
+ &H00000245 
+ Moves 3D axes to front 
+ 
+SGA_CREATEPLOT 
+ &H00000246 
+ 
+ 
+SGA_NTHPLOT 
+ &H00000247 
+ 
+ 
+SGA_NTHAXIS 
+ &H00000248 
+ 
+ 
+SGA_PLOTBYNAME 
+ &H00000249 
+ 
+ 
+SGA_AXISBYNAME 
+ &H0000024A 
+ 
+ 
+SGA_CURRENTPLOT 
+ &H0000024B 
+ 
+ 
+SGA_CURRENTAXIS 
+ &H0000024C 
+ 
+ 
+SGA_RENDERED 
+ &H0000024D 
+ 
+ 
+SGA_PLOTBYHANDLE 
+ &H0000024E 
+ 
+ 
+SGA_AXISBYHANDLE 
+ &H0000024F 
+ 
+ 
+SGA_REMOVEAXIS 
+ &H00000250 
+ 
+ 
+SGA_REMOVEPLOT 
+ &H00000251 
+ 
+ 
+SGA_HNAME 
+ &H00000252 
+ 
+ 
+SGA_HAUTOLEGENDBAG 
+ &H00000253 
+ 
+ 
+SGA_NTHAUTOLEGEND 
+ &H00000254 
+ 
+ 
+SGA_FLAGS 
+ &H00000255 
+ Use SGA_FLAGS constants 
+ 
+SGA_AUTOLEGENDLINESPACING 
+ &H00000256 
+ 
+ 
+SGA_AUTOLEGENDCOLSPACING 
+ &H00000257 
+ 
+ 
+SGA_AUTOLEGENDMOVED 
+ &H00000258 
+ 
+ 
+SGA_NUMLEGENDSCHANGED 
+ &H00000259 
+ 
+ 
+SGA_AUTOLEGENDSHOW 
+ &H00000260 
+ 
+ 
+SGA_CREATENEXTAUTOLEGEND 
+ &H00000261 
+ 
+ 
+SGA_HAUTOLEGENDSOLID 
+ &H00000262 
+ 
+ 
+SGA_3DLIGHTCOLOR 
+ &H00000263 
+ 
+ 
+SGA_3DLIGHTHORANGLE 
+ &H00000264 
+ 
+ 
+SGA_3DLIGHTELANGLE 
+ &H00000265 
+ 
+ 
+SGA_SELECTPLOT 
+ &H00000266 
+ 
+ 
+SGA_TERNARYTOTAL 
+ &H00000267 
+ 
+ 
+SGA_TERNARYTRIANGLEEXTENT 
+ &H00000268 
+ 
+ 
+SGA_CURRENTLEGENDTEXT 
+ &H00000269 
+ 
+ 
+SGA_CURRENTLEGENDSTYLE 
+ &H0000026A 
+ 
+ 
+SGA_CURRENTLEGENDOPTIONS 
+ &H0000026B 
+ 
+ 
+* Coordinate Systems
+* Graph Line Options
+* General Graph Options
+* Plot Attributes
+* Plot Types
+* Plot Sub-Types
+* Plot Options
+* Linear Regression Options
+* Selected Functions
+* Error Bar Options
+* Line Shape Options
+* Bar Alignment Options
+* Exploded Pie Slice Options
+* Reference Line Options
+* Built-In Schemes
+* Axis Attributes
+* Scale Type Options
+* Axis Lines
+* Axis Options
+* Sub-Axis Options
+* Axis Break Types
+* Selected Ticks
+* Tick Label Notations
+* Tick Label Alignment
+* Tick Mark Density
+* Date and Time Units
+* Polar Plot Angular Axis Unit Constants
+* Axis Wizard Axis Position Constants
+* Text Attributes
+* Text Options
+* Text Selection
+* Legend Styles
+* Line Attributes
+* Line Types
+* Line End Types
+* Symbol Attributes
+* Symbol Shapes
+* Symbol Options
+* Solid Attributes
+* Patterns Types
+* Pattern Densities
+* Tuple Attributes
+* Summary Plot Computations
+* Representation Types
+* Function (Regression and Reference Line) Attributes
+* Function Options
+* Polynomial Linearization Operations
+* Group (Bag) Attributes
+* Object Seeking
+* Curve Fitter Verdicts
+* CurveFit DatasetTypes
+* Smoothing Methods
+
+# EOF
+
+# EOF
+
+# EOF

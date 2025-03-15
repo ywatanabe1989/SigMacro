@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-03-10 16:06:45
+!-- Timestamp: 2025-03-10 16:29:39
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/proj/SigMacro/PySigMacro/README.md
 !-- --- -->
@@ -42,5 +42,10 @@ alias 'kill-sigmaplot'='powershell.exe -File "$(wslpath -w /home/<YOUR-USER-NAME
 alias 'python.exe'='powershell.exe python.exe'
 alias 'ipython.exe'='powershell.exe ipython.exe --no-autoindent'
 ```
+
+<!-- ## Environmental Variables
+ !-- ```powershell
+ !-- $env:SIGMACRO_PATH = "C:/Users/<YOUR-USER-NAME>/Documents/SigmaPlot/SPW12/SigMacro.JNB"
+ !-- ``` -->
 
 <!-- EOF -->

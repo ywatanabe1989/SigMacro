@@ -1,7 +1,7 @@
 <!-- ---
-!-- Timestamp: 2025-03-10 09:12:01
+!-- Timestamp: 2025-03-12 16:58:02
 !-- Author: ywatanabe
-!-- File: /home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/pysigmacro/TODO.md
+!-- File: /home/ywatanabe/proj/SigMacro/PySigMacro/TODO.md
 !-- --- -->
 
 ## TODO

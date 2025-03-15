@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Timestamp: "2025-03-10 12:07:22 (ywatanabe)"
-# File: /home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_macro_dynamic.py
+# File: /home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_dynamic.py
 
-THIS_FILE = "/home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_macro_dynamic.py"
+THIS_FILE = "/home/ywatanabe/win/documents/SigmaPlot-v12.0-Pysigmacro/sigmapylot/examples/run_dynamic.py"
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Time-stamp: "2024-11-03 10:33:13 (ywatanabe)"
