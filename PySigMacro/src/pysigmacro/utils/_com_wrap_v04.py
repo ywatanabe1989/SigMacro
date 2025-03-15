@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-03-15 04:18:21 (ywatanabe)"
+# Timestamp: "2025-03-15 03:29:19 (ywatanabe)"
 # File: /home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/_com_wrap.py
 # ----------------------------------------
 import os
@@ -91,6 +91,8 @@ class COMWrapper:
                     setattr(self, name, method)
 
     def __getattr__(self, name):
+        if name.lower() == "item":
+            return self.__getitem__
         try:
             attr = getattr(self._com_object, name)
             if callable(attr):
@@ -139,25 +141,35 @@ class COMWrapper:
             name = "Unknown"
         return f"<COMWrapper for {name}>"
 
-    # def __len__(self):
-    #     return self._com_object.Count
-    def Item(self, key):
-        return self._com_object.Item(key)
+    def __len__(self):
+        return self._com_object.Count
 
     def __getitem__(self, key):
         try:
-            if isinstance(key, int):
-                key = VARIANT(pythoncom.VT_I4, key)
-            result = self._com_object.Item(key)
+            # Removed VARIANT conversion for key
+            item_method = getattr(self._com_object, "Item", None)
+            if callable(item_method):
+                result = item_method(key)
+            else:
+                result = self._com_object._oleobj_.Invoke(
+                    0, 0, pythoncom.DISPATCH_PROPERTYGET, 1, (key,)
+                )
+            if hasattr(result, "_oleobj_"):
+                return com_wrap(result)
             return result
         except Exception as e:
             raise TypeError("COMWrapper object is not subscriptable") from e
 
     def __call__(self, key, *args, **kwargs):
         try:
-            if isinstance(key, int):
-                key = VARIANT(pythoncom.VT_I4, key)
-            result = self._com_object.Item(key, *args, **kwargs)
+            # Removed VARIANT conversion for key
+            item_method = getattr(self._com_object, "Item", None)
+            if callable(item_method):
+                result = item_method(key, *args, **kwargs)
+            else:
+                result = self._com_object._oleobj_.Invoke(
+                    0, 0, pythoncom.DISPATCH_METHOD, 1, (key,) + tuple(args)
+                )
             if hasattr(result, "_oleobj_"):
                 return com_wrap(result)
             return result

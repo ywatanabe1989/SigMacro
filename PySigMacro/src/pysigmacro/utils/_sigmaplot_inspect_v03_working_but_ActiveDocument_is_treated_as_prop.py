@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-03-15 02:17:28 (ywatanabe)"
+# Timestamp: "2025-03-15 01:43:20 (ywatanabe)"
 # File: /home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/_sigmaplot_inspect.py
 # ----------------------------------------
 import os
@@ -15,6 +15,9 @@ from ._sigmaplot_objects import SIGMAPLOT_OBJECTS
 from ._sigmaplot_properties import SIGMAPLOT_PROPERTIES
 from ._sigmaplot_methods import SIGMAPLOT_METHODS
 
+
+
+
 def inspect(com_object):
     valid_props = get_valid_properties(com_object)
     valid_methods = get_valid_methods(com_object)
@@ -23,15 +26,14 @@ def inspect(com_object):
     for prop in valid_props:
         try:
             value = getattr(com_object, prop)
+            if hasattr(value, "_oleobj_"):
+                object_dict[prop] = value
+            else:
+                value_str = str(value)
+                prop_dict[prop] = value_str
         except Exception as e:
-            # If retrieval fails, record the error message as the property value
-            prop_dict[prop] = f"Error: {e}"
-            continue
-        # If the property is listed among COM objects or exhibits COM characteristics, treat it as an object
-        if prop in SIGMAPLOT_OBJECTS or hasattr(value, "_oleobj_"):
-            object_dict[prop] = value
-        else:
-            prop_dict[prop] = str(value)
+            value_str = f"Error: {e}"
+    method_dict = {"Methods": valid_methods}
     rows = []
     for key, value in prop_dict.items():
         rows.append({"Name": key, "Type": "Property", "Value": value})
@@ -41,7 +43,6 @@ def inspect(com_object):
         rows.append({"Name": m, "Type": "Method", "Value": ""})
     summary_df = pd.DataFrame(rows)
     return summary_df
-
 def _get_valid_xxx(com_object, available_list):
     valid_list = []
     for possible in available_list:
@@ -56,10 +57,8 @@ def _get_valid_xxx(com_object, available_list):
             if "VT_EMPTY" in err_str or "VT_BSTR" in err_str or "VT_I2" in err_str or "VT_I4" in err_str:
                 valid_list.append(possible)
     return valid_list
-
 def get_valid_methods(com_object):
     return _get_valid_xxx(com_object, SIGMAPLOT_METHODS)
-
 def get_valid_properties(com_object):
     return _get_valid_xxx(com_object, SIGMAPLOT_PROPERTIES)
 
