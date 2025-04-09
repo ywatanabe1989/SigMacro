@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-07 23:28:07 (ywatanabe)"
+# Timestamp: "2025-04-09 19:37:24 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/data/_import_data.py
 # ----------------------------------------
 import os
@@ -55,7 +55,11 @@ def import_data(worksheet_item, df=None, csv=None, left=0, top=0):
         col = col[~col.isna()]
         if column_name == "symbol":
             col = col.astype(str)
-        datatable_obj.PutData(col.tolist(), left+ii, top)
+        try:
+            datatable_obj.PutData(col.tolist(), left+ii, top)
+        except Exception as e:
+            print(e)
+            __import__("ipdb").set_trace()
 
     # Header
     for ii, header in enumerate(df.columns):

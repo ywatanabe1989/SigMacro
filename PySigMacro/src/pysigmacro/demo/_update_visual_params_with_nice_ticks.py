@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 05:53:13 (ywatanabe)"
+# Timestamp: "2025-04-09 19:57:05 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_update_visual_params_with_nice_ticks.py
 # ----------------------------------------
 import os
@@ -16,6 +16,7 @@ from ..utils._calculate_nice_ticks import calculate_nice_ticks
 from ..const._SCALES import SCALES
 
 AVAILABLE_SCALES = SCALES
+
 
 # Main
 # ------------------------------
@@ -97,7 +98,7 @@ def _calculate_x_nice_ticks(
     df_visual_params,
     df_data,
     pad_perc,
-    numeric_columns=["x", "xerr", "x_lower", "x_upper", "theta"] + [f"x{ii}" for ii in range(32)],
+    numeric_columns=["x", "xerr", "x_lower", "x_upper", "theta"],
 ):
     """Update x-axis ticks in visual parameters"""
     return _calculate_axis_nice_ticks(
@@ -115,7 +116,7 @@ def _calculate_y_nice_ticks(
     df_visual_params,
     df_data,
     pad_perc,
-    numeric_columns=["y", "yerr", "y_lower", "y_upper", "r"] + [f"y{ii}" for ii in range(32)],
+    numeric_columns=["y", "yerr", "y_lower", "y_upper", "r"],
 ):
     """Update y-axis ticks in visual parameters"""
     return _calculate_axis_nice_ticks(
@@ -151,6 +152,7 @@ def _update_yticks(df_visual_params, y_nice_ticks, y_padded_min, y_padded_max):
 # Base
 # ------------------------------
 
+
 def _calculate_axis_nice_ticks(
     plot_type,
     df_visual_params,
@@ -175,11 +177,22 @@ def _calculate_axis_nice_ticks(
     # Default numeric columns for each axis if not specified
     if numeric_columns is None:
         if axis == "x":
-            numeric_columns = ["x", "xerr", "x_lower", "x_upper", "theta"] \
-                + [f"x{ii}" for ii in range(32)]
-        if axis == 'y':
-            numeric_columns = ["y", "yerr", "y_lower", "y_upper", "r"] \
-                + [f"y{ii}" for ii in range(32)]
+            numeric_columns = ["x", "xerr", "x_lower", "x_upper", "theta"]
+        if axis == "y":
+            numeric_columns = ["y", "yerr", "y_lower", "y_upper", "r"]
+
+    # Define separators and the range for the index
+    separators = ["", " ", "-", "."]
+    max_index = 64  # Generate indices from 0 to 63
+    new_keys = [
+        f"{key}{sep}{ii}"
+        for sep in separators
+        for ii in range(max_index)
+        for key in numeric_columns
+    ]
+
+    # Add suffixes
+    numeric_columns += new_keys
 
     # Set up axis-specific parameter names
     min_param = f"{axis}min"
@@ -193,7 +206,10 @@ def _calculate_axis_nice_ticks(
     ][scale_param]
 
     if scale_specified not in AVAILABLE_SCALES:
-        print(f"Warning: Specified scale {scale_specified} is not available. Skipping calculation of {axis} nice ticks.")
+        print(
+            f"Warning: Specified scale {scale_specified} is not available. "
+            f"Skipping calculation of {axis} nice ticks."
+        )
         return ["auto"], "auto", "auto"
 
     # Get specified parameters
@@ -228,7 +244,9 @@ def _calculate_axis_nice_ticks(
             if axis == "y":
                 min_shifted = min_data - 0.5
                 max_shifted = max_data + 0.5
-                nice_ticks = (np.arange(min_shifted, max_shifted) - 0.5).tolist()
+                nice_ticks = (
+                    np.arange(min_shifted, max_shifted) - 0.5
+                ).tolist()
                 return nice_ticks, min_shifted, max_data
 
         # min/max considering actual data range
@@ -290,25 +308,17 @@ def _update_axis_ticks(
         col_ticks = df.columns.get_loc(label_ticks)
 
         # Rows
-        row_min = df.index[
-            df[col_name_vis_label] == label_min
-        ].tolist()[0]
+        row_min = df.index[df[col_name_vis_label] == label_min].tolist()[0]
 
-        row_max = df.index[
-            df[col_name_vis_label] == label_max
-        ].tolist()[0]
+        row_max = df.index[df[col_name_vis_label] == label_max].tolist()[0]
 
         # Update min
         if padded_min != "auto":
-            df.iloc[row_min, col_vis_vals] = _prefer_int(
-                padded_min
-            )
+            df.iloc[row_min, col_vis_vals] = _prefer_int(padded_min)
 
         # Update max
         if padded_max != "auto":
-            df.iloc[row_max, col_vis_vals] = _prefer_int(
-                padded_max
-            )
+            df.iloc[row_max, col_vis_vals] = _prefer_int(padded_max)
 
         # Update ticks
         for i_tick, tick in enumerate(nice_ticks):
@@ -323,9 +333,9 @@ def _update_axis_ticks(
         return df
 
 
-
 # Helpers
 # ------------------------------
+
 
 def _prefer_int(float_or_int_value):
     """Convert float to integer if the value close to int"""

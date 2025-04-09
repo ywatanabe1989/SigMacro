@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 02:12:46 (ywatanabe)"
+# Timestamp: "2025-04-09 20:41:18 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_jnb.py
 # ----------------------------------------
 import os
@@ -57,9 +57,9 @@ class JNBGenerator:
         self.path_gif = self.path_jnb.replace("jnb", "gif")
         self.path_bmp = self.path_jnb.replace("jnb", "bmp")
 
-        assert os.path.exists(
-            self.path_csv
-        ), f"CSV path does not exist: {self.path_csv}"
+        # assert os.path.exists(
+        #     self.path_csv
+        # ), f"CSV path does not exist: {self.path_csv}"
         assert os.path.exists(
             self.path_jnb_template
         ), f"JNB template path does not exist: {self.path_jnb_template}"
@@ -121,6 +121,8 @@ class JNBGenerator:
     def import_data(self, df=None):
         if self.from_demo_csv:
             csv = self.path_csv
+        else:
+            csv = None
         self.datatable = ps_data_import_data(
             self.worksheetitem, df=self.df, csv=csv
         )
@@ -135,7 +137,7 @@ class JNBGenerator:
     def save_notebook(self):
         self.notebook.Save()
 
-    def _run(self):
+    def _run(self, keep_orig=False):
         ps_con_close_all()
         self.remove_template()
         self.copy_template()
@@ -148,19 +150,19 @@ class JNBGenerator:
         self.save_notebook()
         self.run_all_in_one_macro()
         self.save_notebook()
-        self.graphitem.export_as_tif(path=self.path_tif, keep_orig=False)
-        self.graphitem.export_as_gif(path=self.path_gif, keep_orig=False)
+        self.graphitem.export_as_tif(path=self.path_tif, keep_orig=keep_orig)
+        self.graphitem.export_as_gif(path=self.path_gif, keep_orig=keep_orig)
         self.save_notebook()
         # ps_con_close_all()
         return self.path_jnb
 
-    def run(self):
+    def run(self, keep_orig_figures=False):
         max_retry = 3
         last_error = None
 
         for retry_count in range(max_retry):
             try:
-                return self._run()
+                return self._run(keep_orig=keep_orig_figures)
             except Exception as e:
                 last_error = e
                 print(

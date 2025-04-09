@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-04-09 13:59:53
+!-- Timestamp: 2025-04-09 20:56:10
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/win/documents/SigMacro/docs/HOW-TO-ADD-NEW-PLOT-TYPE.md
 !-- --- -->

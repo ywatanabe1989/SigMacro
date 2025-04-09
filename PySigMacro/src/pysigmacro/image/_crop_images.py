@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-01 17:44:23 (ywatanabe)"
+# Timestamp: "2025-04-09 20:47:04 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/image/_crop_images.py
 # ----------------------------------------
 import os
@@ -288,7 +288,7 @@ class ImageCropper:
                 input_files.append(path)
             else:
                 # Use glob to expand wildcards
-                expanded = glob.glob(path)
+                expanded = glob(path)
                 input_files.extend(expanded)
 
         if not input_files:
