@@ -906,6 +906,7 @@ Sub _ApplyColorViolinLine(iPlot As Long, RGB_VAL As Long, transparencyVal As Lon
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLORREPEAT, 2)
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SLA_AREAFILLTYPE, 1)
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, RGB_BLACK)
+       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)       
     End With
 End Sub
 
@@ -1252,22 +1253,54 @@ End Sub
 
 ' ========================================
 ' Label Rotation
-' ========================================
-Sub _SetTickLabelRotation(axisDim As Long, labelRotationRow As Long)
-    On Error Resume Next
-    Dim oTextTick As Object
-    Dim rotationDegrees As Long
+' ' ========================================
+' Sub _SetTickLabelRotation(axisDim As Long, labelRotationRow As Long)
+'     On Error Resume Next
+'     Dim oTextTick As Object
+'     Dim rotationDegrees As Long
 
-    rotationDegrees = CLng(_ReadCell(GRAPH_PARAMS_COL, labelRotationRow))
-    Set oTextTick = ActiveDocument.CurrentPageItem.GraphPages(0).CurrentPageObject(GPT_GRAPH).Axes(axisDim).AxisTitles(0).TickLabelAttributes(MAJOR_TICK_INDEX)
+'     rotationDegrees = CLng(_ReadCell(GRAPH_PARAMS_COL, labelRotationRow))
+'     Set oTextTick = ActiveDocument.CurrentPageItem.GraphPages(0).CurrentPageObject(GPT_GRAPH).Axes(axisDim).AxisTitles(0).TickLabelAttributes(MAJOR_TICK_INDEX)
 
-    oTextTick.SetAttribute(STA_ORIENTATION, rotationDegrees * 10)
-    On Error GoTo 0
-End Sub
+'     oTextTick.SetAttribute(STA_ORIENTATION, rotationDegrees * 10)
+'     On Error GoTo 0
+' End Sub
+
+' Sub SetTickLabelRotation()
+'     _SetTickLabelRotation(HORIZONTAL, X_LABEL_ROTATION_ROW)
+'     _SetTickLabelRotation(VERTICAL, Y_LABEL_ROTATION_ROW)
+' End Sub
 
 Sub SetTickLabelRotation()
-    _SetTickLabelRotation(HORIZONTAL, X_LABEL_ROTATION_ROW)
-    _SetTickLabelRotation(VERTICAL, Y_LABEL_ROTATION_ROW)
+    Dim xRotation As Long
+    Dim yRotation As Long
+    Dim oGraph As Object
+    Dim oAxisX As Object
+    Dim oAxisY As Object
+    Dim oTextXTick As Object
+    Dim oTextYTick As Object
+    
+    ' Default rotations (0 degrees)
+    xRotation = 0
+    yRotation = 0
+    
+    ' Try to read rotation values from worksheet if available
+    On Error Resume Next
+    ' Assuming rotation values might be stored in cells next to the axis properties
+    xRotation = CLng(_ReadCell(GRAPH_PARAMS_COL, X_LABEL_ROTATION_ROW)) * 10
+    yRotation = CLng(_ReadCell(GRAPH_PARAMS_COL, Y_LABEL_ROTATION_ROW)) * 10
+    On Error GoTo 0
+    
+    ' Set the tick label rotation
+    Set oGraph = ActiveDocument.CurrentPageItem.GraphPages(0).CurrentPageObject(GPT_GRAPH)
+    Set oAxisX = oGraph.Axes(HORIZONTAL)
+    Set oAxisY = oGraph.Axes(VERTICAL)
+    Set oTextXTick = oAxisX.TickLabelAttributes(MAJOR_TICK_INDEX)
+    Set oTextYTick = oAxisY.TickLabelAttributes(MAJOR_TICK_INDEX)
+    
+    ' Apply rotation values
+    oTextXTick.SetAttribute(STA_ORIENTATION, xRotation)
+    oTextYTick.SetAttribute(STA_ORIENTATION, yRotation)
 End Sub
 
 ' ========================================

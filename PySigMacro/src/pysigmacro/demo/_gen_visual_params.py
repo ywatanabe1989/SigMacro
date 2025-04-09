@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 14:08:13 (ywatanabe)"
+# Timestamp: "2025-04-09 18:23:03 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_visual_params.py
 # ----------------------------------------
 import os
@@ -40,10 +40,10 @@ def gen_visual_params(plot_type, n_cols=8, **kwargs):
         "lines_y_many_x": _gen_demo_visual_params_lines_y_many_x(),
         "lines_x_many_y": _gen_demo_visual_params_lines_x_many_y(),
         "violin": _gen_demo_visual_params_violin(),
-        # not implemented yet
-        "violinh": _gen_demo_visual_params_violinh(),
         "filled_line": _gen_demo_visual_params_filled_line(),
         "contour": _gen_demo_visual_params_contour(),
+        # not implemented yet
+        "violinh": _gen_demo_visual_params_violinh(),
     }[plot_type]
     out_dict.update(PLOT_SPECIFIC_PARAMS)
 
@@ -299,7 +299,7 @@ def _gen_demo_visual_params_jitter():
         "xscale": "linear",
         "xmin": "auto",
         "xmax": "auto",
-        "xticks": [ii for ii in range(1, 32)],
+        "xticks": ["auto"],
         "ylabel": "Y-Axis Label",
         "yrot": 0,
         "ymm": 40 * 0.7,
@@ -318,7 +318,7 @@ def _gen_demo_visual_params_violin():
         "xscale": "linear",
         "xmin": "auto",
         "xmax": "auto",
-        "xticks": [ii for ii in range(1, 32)],
+        "xticks": ["auto"],
         "ylabel": "Y-Axis Label",
         "yrot": 0,
         "ymm": 40 * 0.7,

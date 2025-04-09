@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 06:28:26 (ywatanabe)"
+# Timestamp: "2025-04-09 18:37:25 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_single_data_violin.py
 # ----------------------------------------
 import os
@@ -24,7 +24,7 @@ from scipy import stats
 # ------------------------------
 
 
-def _gen_single_data_violin(i_plot, violin_half_width=1.):
+def _gen_single_data_violin(i_plot, violin_half_width=1., alpha=0.7):
     batch_size = 2
 
     i_plot_kde_left = i_plot * batch_size + 0
@@ -38,6 +38,7 @@ def _gen_single_data_violin(i_plot, violin_half_width=1.):
         raw_data_dict,
         num_kde_points=100,
         violin_half_width=violin_half_width,
+        alpha=alpha,
     )
 
     # Formatting for pysigmaplot
@@ -92,7 +93,7 @@ def _gen_single_raw_data_violin(i_plot):
 
 
 def _calculate_kde(
-    i_plot, raw_data_dict, num_kde_points=100, violin_half_width=1
+        i_plot, raw_data_dict, num_kde_points=100, violin_half_width=1, alpha=1.0
 ):
     """
     Calculates the Kernel Density Estimate (KDE) shape for a given data category.
@@ -170,11 +171,13 @@ def _calculate_kde(
     x_right_edge = x_position + scaled_density
 
     # --- Return KDE Shape Data ---
+    bgra = BGRA[COLORS[i_plot % len(COLORS)]]
+    bgra[-1] = alpha
     return dict(
         y=y_values_kde,  # Y-axis coordinates (where density is evaluated)
         x_lower=x_left_edge,  # X-axis coordinates for the left edge
         x_upper=x_right_edge,  # X-axis coordinates for the right edge
-        bgra=BGRA[COLORS[i_plot % len(COLORS)]],
+        bgra=bgra,
     )
 
 

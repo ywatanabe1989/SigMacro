@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 17:14:16 (ywatanabe)"
+# Timestamp: "2025-04-09 18:37:49 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/examples/demo.py
 # ----------------------------------------
 import os
@@ -29,22 +29,22 @@ def run_demo():
     for plot_type in psm.const.PLOT_TYPES:
 
         if plot_type in [
-            "area",
-            "bar",
-            "barh",
-            "scatter",
-            "box", "boxh",
-            "line",
-            "line_yerr",
-            "lines_y_many_x",
-            "lines_x_many_y",
-            "polar",
-            "contour",
-            "heatmap",
+            # "area",
+            # "bar",
+            # "barh",
+            # "scatter",
+            # "box", "boxh",
+            # "line",
+            # "line_yerr",
+            # "lines_y_many_x",
+            # "lines_x_many_y",
+            # "polar",
+            # "contour",
+            # "heatmap",
             "violin",
-            "filled_line",
-            "histogram",
-            "jitter"
+            # "filled_line",
+            # "histogram",
+            # "jitter"
         ]:
             n_plots = define_n_plots(plot_type)
             plot_types = [plot_type for _ in range(n_plots)]
