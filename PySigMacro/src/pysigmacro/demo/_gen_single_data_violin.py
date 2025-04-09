@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 18:37:25 (ywatanabe)"
+# Timestamp: "2025-04-09 18:57:09 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_single_data_violin.py
 # ----------------------------------------
 import os
@@ -23,23 +23,26 @@ from scipy import stats
 # Main
 # ------------------------------
 
-
-def _gen_single_data_violin(i_plot, violin_half_width=1., alpha=0.7):
+def _gen_single_data_violin(i_plot, violin_half_width=1., box_alpha=0.5, kde_alpha=0.7):
     batch_size = 2
 
     i_plot_kde_left = i_plot * batch_size + 0
     i_plot_violin = (i_plot * batch_size) + 1
 
-
     # Data Calculation
-    raw_data_dict = _gen_single_raw_data_violin(i_plot_violin)
+    raw_data_dict = _gen_single_raw_data_violin(i_plot_violin, box_alpha)
     kde_data_dict = _calculate_kde(
         i_plot_violin,
         raw_data_dict,
         num_kde_points=100,
         violin_half_width=violin_half_width,
-        alpha=alpha,
+        alpha=kde_alpha,
     )
+
+    # Alpha
+    bgra_box = raw_data_dict["bgra"]
+    bgra_box[-1] = box_alpha
+    raw_data_dict["bgra"] = bgra_box
 
     # Formatting for pysigmaplot
     # Box
@@ -61,7 +64,7 @@ def _gen_single_data_violinh(i_plot):
     return violinh_df
 
 
-def _gen_single_raw_data_violin(i_plot):
+def _gen_single_raw_data_violin(i_plot, box_alpha=1.0):
     """
     Generates categorical raw data suitable for SigmaPlot's violin plot.
     SigmaPlot handles KDE and box plot generation from these raw points.
@@ -83,12 +86,15 @@ def _gen_single_raw_data_violin(i_plot):
         [y_values, np.array([mean - 3 * std_dev, mean + 3 * std_dev])]
     )
 
+    bgra = BGRA[COLORS[i_plot % len(COLORS)]]
+    bgra[-1] = box_alpha
+
     # Return the category identifier (numeric position) and the raw data points
     return dict(
         # Use numeric x for positioning, category label might be handled elsewhere
         x=x_position,
         y=y_values,  # Array of raw data points for this category
-        bgra=BGRA[COLORS[i_plot % len(COLORS)]],
+        bgra=bgra,
     )
 
 

@@ -798,7 +798,7 @@ Sub _ApplyColorBar(iPlot As Long, RGB_VAL As Long, transparencyVal As Long)
     With ActiveDocument.CurrentPageItem
     .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLOR, RGB_VAL)
     .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, RGB_BLACK)
-    .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)    
+    .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)
     End With
 End Sub
 
@@ -839,7 +839,7 @@ Sub _ApplyColorFilledLineUpper(iPlot As Long, RGB_VAL As Long, transparencyVal A
     DebugMsg(DEBUG_MODE, "_ApplyColorFilledLineUpper called")
     _SelectPlot(iPlot)
     With ActiveDocument.CurrentPageItem
-        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SEA_LINETYPE, LINETYPE_NONE)           
+        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SEA_LINETYPE, LINETYPE_NONE)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, &H00000000&)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLORREPEAT, 2)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, &H00000362&, 0)
@@ -870,8 +870,8 @@ Sub _ApplyColorFilledLineLower(iPlot As Long, RGB_VAL As Long, transparencyVal A
     Const DEBUG_MODE As Boolean = False
     DebugMsg(DEBUG_MODE, "_ApplyColorFilledLineLower called")
     _SelectPlot(iPlot)
-    With ActiveDocument.CurrentPageItem    
-        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SEA_LINETYPE, LINETYPE_NONE)    
+    With ActiveDocument.CurrentPageItem
+        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SEA_LINETYPE, LINETYPE_NONE)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, &H00000000&)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLORREPEAT, 2)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, &H00000362&, 0)
@@ -881,7 +881,7 @@ Sub _ApplyColorFilledLineLower(iPlot As Long, RGB_VAL As Long, transparencyVal A
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SLA_AREAFILLTYPE, AREAFILLTYPE_VERTICAL)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, &H00000000&)
         .SetCurrentObjectAttribute(GPM_SETPLOTATTR, &H000008a7&, 0)
-        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, &H000008a8&, 0)       
+        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, &H000008a8&, 0)
     End With
 End Sub
 
@@ -890,9 +890,12 @@ Sub _ApplyColorViolinBox(iPlot As Long, RGB_VAL As Long, transparencyVal As Long
     DebugMsg(DEBUG_MODE, "_ApplyColorViolinBox called")
     _SelectPlot(iPlot)
     With ActiveDocument.CurrentPageItem
-       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR, _GenRGB(200,200,200))
-       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLOR, _GenRGB(200,200,200))
+       ' .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR, _GenRGB(200,200,200))
+       ' .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLOR, _GenRGB(200,200,200))
+       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR, RGB_WHITE)
+       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLOR, RGB_WHITE)
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, RGB_BLACK)
+       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)
     End With
 End Sub
 
@@ -906,7 +909,7 @@ Sub _ApplyColorViolinLine(iPlot As Long, RGB_VAL As Long, transparencyVal As Lon
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_COLORREPEAT, 2)
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SLA_AREAFILLTYPE, 1)
        .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SDA_EDGECOLOR, RGB_BLACK)
-       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)       
+       .SetCurrentObjectAttribute(GPM_SETPLOTATTR, SSA_COLOR_ALPHA, transparencyVal)
     End With
 End Sub
 
@@ -1279,25 +1282,25 @@ Sub SetTickLabelRotation()
     Dim oAxisY As Object
     Dim oTextXTick As Object
     Dim oTextYTick As Object
-    
+
     ' Default rotations (0 degrees)
     xRotation = 0
     yRotation = 0
-    
+
     ' Try to read rotation values from worksheet if available
     On Error Resume Next
     ' Assuming rotation values might be stored in cells next to the axis properties
     xRotation = CLng(_ReadCell(GRAPH_PARAMS_COL, X_LABEL_ROTATION_ROW)) * 10
     yRotation = CLng(_ReadCell(GRAPH_PARAMS_COL, Y_LABEL_ROTATION_ROW)) * 10
     On Error GoTo 0
-    
+
     ' Set the tick label rotation
     Set oGraph = ActiveDocument.CurrentPageItem.GraphPages(0).CurrentPageObject(GPT_GRAPH)
     Set oAxisX = oGraph.Axes(HORIZONTAL)
     Set oAxisY = oGraph.Axes(VERTICAL)
     Set oTextXTick = oAxisX.TickLabelAttributes(MAJOR_TICK_INDEX)
     Set oTextYTick = oAxisY.TickLabelAttributes(MAJOR_TICK_INDEX)
-    
+
     ' Apply rotation values
     oTextXTick.SetAttribute(STA_ORIENTATION, xRotation)
     oTextYTick.SetAttribute(STA_ORIENTATION, yRotation)
