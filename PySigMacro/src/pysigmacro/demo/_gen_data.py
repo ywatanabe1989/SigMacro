@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 17:10:27 (ywatanabe)"
+# Timestamp: "2025-04-09 18:23:31 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_data.py
 # ----------------------------------------
 import os
@@ -209,26 +209,6 @@ def _gen_single_data_barh(ii):
         xerr=vv["yerr"],
         bgra=BGRA[COLORS[ii % len(COLORS)]],
     )
-
-
-# def _gen_single_data_area(ii, alpha=0.5):
-#     # Random Seed
-#     np.random.seed(42)
-#     # X
-#     x = np.linspace(0, 10, 20) + ii
-#     # Y
-#     y = np.exp(-((x - 5 * (ii % 3)) ** 2) / 10)
-#     y += np.random.normal(0, 0.05 * (ii + 1), size=len(x))
-#     # y_lower = y - np.random.normal(0, 0.05 * (ii + 1), size=len(x))
-#     # y_upper = y + np.random.normal(0, 0.05 * (ii + 1), size=len(x))
-#     # Color
-#     bgra = BGRA[COLORS[ii % len(COLORS)]]
-#     bgra[-1] = alpha
-#     return dict(
-#         x=x,
-#         y=y,
-#         bgra=bgra,
-#     )
 
 
 def _gen_single_data_area(plot_idx, alpha=0.5, x_shift=0):
