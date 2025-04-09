@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-04-09 17:13:44
+!-- Timestamp: 2025-04-09 17:52:06
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/win/documents/SigMacro/README.md
 !-- --- -->
@@ -30,43 +30,32 @@ This package allows users to create publication-ready figures using [SigmaPlot](
 ## Working with GUI
 <img src="./docs/demo.gif" alt="SigMacro Demo" width="400"/>
 
-## How does it work?
-
-#### In SigmaPlot:
-1. [All-in-one macro](./vba/ALL-IN-ONE-MACRO.vba) is embedded in a [SigmaPlot template file](./templates/jnb/template.JNB) for:
-   - Reading graph parameters
-   - Plotting data
-
-#### From Python:
-1. Sending plotting data and graph visualization parameters to SigmaPlot
-2. Calling SigmaPlot macros
-3. Saving (cropped) figures
-
-In other wards, [csv files in these formats](./templates/csv) can be rendered by the [all-in-one-macro](./vba/ALL-IN-ONE-MACRO.vba). For more details, please see refer to [the entry script](./PySigMacro/examples/demo.py) for the above demonstrations )
-
 ## Prerequisite
 
  - SigmaPlot License 
  - Windows OS
 
-## Insallation
+## How does it work?
 
-- [SigmaPlot](https://grafiti.com/sigmaplot-detail/)
+#### In SigmaPlot:
+1. [ALL-IN-ONE-MACRO](./vba/ALL-IN-ONE-MACRO.vba) embedded in [the SigmaPlot template file](./templates/jnb/template.JNB):
+   - Reads graph parameters
+   - Plots data
 
-- SigMacro
-  - Series of macros for automating SigmaPlot
-  - Installation
-    - [`./SigMacro/README.md`](./SigMacro/README.md)
+#### Python wrapper (pysigmacro):
+1. Sends (i) plotting data and (ii) graphing parameters to SigmaPlot
+2. Calls SigmaPlot macro
+3. Saves (cropped) figures
 
-- PySigMacro
-  - Python Interface for calling SigMacro
-  - [Demo Movie](https://onedrive.live.com/?qt=allmyphotos&photosData=%2Fshare%2F12F1169924695EF9%213150863%3Fithint%3Dvideo%26e%3DLnoc26&sw=bypassConfig&cid=12F1169924695EF9&id=12F1169924695EF9%213150863&authkey=%21AFE1u69Zha9Sois&v=photos)
-  - Installation
-    - [`./PySigMacro/README.md`](./PySigMacro/README.md)
+In other wards, [csv files in these formats](./templates/csv) can be rendered by the [all-in-one-macro](./vba/ALL-IN-ONE-MACRO.vba). For more details, please refer to [the entry script](./PySigMacro/examples/demo.py) for the above demonstrations )
 
-## Usage
+## Installation & Quick Start
 
 ``` powershell
+# Install pysigmacro package
+cd \path\to\PySigMacro && python.exe -m pip install -e .
+
+# Run demo entry script
 python.exe ./PySigMacro/examples/demo.py
 ```
 
