@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Timestamp: "2025-04-09 18:23:03 (ywatanabe)"
+# Timestamp: "2025-04-09 20:02:08 (ywatanabe)"
 # File: /home/ywatanabe/win/documents/SigMacro/PySigMacro/src/pysigmacro/demo/_gen_visual_params.py
 # ----------------------------------------
 import os
