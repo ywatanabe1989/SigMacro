@@ -1,5 +1,5 @@
 <!-- ---
-!-- Timestamp: 2025-04-09 20:59:08
+!-- Timestamp: 2025-04-09 20:59:51
 !-- Author: ywatanabe
 !-- File: /home/ywatanabe/win/documents/SigMacro/README.md
 !-- --- -->
@@ -162,9 +162,6 @@ To add or edit this package, you might want to update these files:
 - [`./PySigMacro/src/pysigmacro/demo/_update_visual_params_with_nice_ticks.py`](./PySigMacro/src/pysigmacro/demo/_update_visual_params_with_nice_ticks.py)
 - [`./vba/ALL-IN-ONE-MACRO.vba`](./vba/ALL-IN-ONE-MACRO.vba)
 - [`./templates/template.jnb`](./templates/template.jnb) (embed the ALL-IN-ONE-MACRO.vba contents as all-in-one-macro)
-
-
-
 
 ## Contact
 Yusuke Watanabe (ywatanabe@alumni.u-tokyo.ac.jp)
