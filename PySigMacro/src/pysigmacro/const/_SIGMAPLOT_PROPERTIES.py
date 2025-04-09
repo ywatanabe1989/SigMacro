@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Timestamp: "2025-03-15 00:52:07 (ywatanabe)"
+# File: /home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/_sigmaplot_properties.py
+
+import os
+
+__THIS_FILE__ = (
+    "/home/ywatanabe/proj/SigMacro/PySigMacro/src/pysigmacro/utils/_sigmaplot_properties.py"
+)
+__THIS_DIR__ = os.path.dirname(__THIS_FILE__)
+
+SIGMAPLOT_PROPERTIES = [
+    "ActiveDocument",
+    "AddOnLocation",
+    "Application",
+    "Author",
+    "Autolegend",
+    "Axes",
+    "AxisTitles",
+    "Cell",
+    "ChildObjects",
+    "Color",
+    "ColumnTitle",
+    "Comments",
+    "Count",
+    "CurrentBrowserItem",
+    "CurrentDataItem",
+    "CurrentDateString",
+    "CurrentItem",
+    "CurrentPageItem",
+    "CurrentPageObject",
+    "CurrentTimeString",
+    "DataTable",
+    "DecimalSymbol",
+    "DefaultPath",
+    "DropLines",
+    "Expanded",
+    "Fill",
+    "FullName",
+    "Functions",
+    "Gallery",
+    "Graphs",
+    "GraphPages",
+    "Height",
+    "InsertionMode",
+    "Interactive",
+    "IsCurrentBrowserEntry",
+    "IsCurrentItem",
+    "IsOpen",
+    "ItemType",
+    "Keywords",
+    "Left",
+    "Line",
+    "LineAttributes",
+    "LowerPickIndex",
+    "Name",
+    "NameObject",
+    "NameOfRange",
+    "NamedRanges",
+    "NotebookItems",
+    "Notebooks",
+    "NumberFormat",
+    "ObjectType",
+    "OwnerGraphObject",
+    "Parent",
+    "Path",
+    "Plots",
+    "Saved",
+    "SelectedText",
+    "SelectionExtent",
+    "ShowStatsWorksheet",
+    "StatsWorksheetDataTable",
+    "StatusBar",
+    "Subject",
+    "SuspendIdle",
+    "Symbols",
+    "Template",
+    "Text",
+    "TickLabelAttributes",
+    "Title",
+    "Top",
+    "UpperPickIndex",
+    "Visible",
+    "Width",
+]
+
+# EOF
